@@ -12,7 +12,7 @@ import { STORAGE_KEYS } from '../config/constants';
 export const ThemeContext = createContext(null);
 
 export const ThemeProvider = ({ children }) => {
-    const [mode, setMode] = useState('light');
+    const [mode, setMode] = useState('dark'); // Changed default to dark
 
     /**
      * Initialize theme mode from localStorage
@@ -21,6 +21,10 @@ export const ThemeProvider = ({ children }) => {
         const savedMode = localStorage.getItem(STORAGE_KEYS.THEME_MODE);
         if (savedMode && (savedMode === 'light' || savedMode === 'dark')) {
             setMode(savedMode);
+        } else {
+            // Set dark as default if no saved preference
+            setMode('dark');
+            localStorage.setItem(STORAGE_KEYS.THEME_MODE, 'dark');
         }
     }, []);
 

@@ -20,8 +20,9 @@ body {
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F8FAFC;
+  background-color: #0F172A;
   min-height: 100vh;
+  color: #E5E7EB;
 }
 
 code {
