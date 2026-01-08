@@ -130,7 +130,7 @@ export const ProfilePage = () => {
                     </Typography>
                 </Box>
 
-                <Grid container spacing={3}>
+                <Grid container spacing={3} sx={{ justifyContent: 'center' }}>
                     {/* Profile Card */}
                     <Grid item xs={12} md={4}>
                         <Card>

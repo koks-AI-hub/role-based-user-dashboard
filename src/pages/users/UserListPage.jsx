@@ -21,6 +21,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import MainLayout from '../../components/layout/MainLayout';
 import UserFormDialog from '../../components/users/UserFormDialog';
@@ -218,15 +219,30 @@ export const UserListPage = () => {
         {
             field: 'actions',
             headerName: 'Actions',
-            width: 120,
+            width: 150,
             sortable: false,
             renderCell: (params) => (
                 <Box>
+                    <Tooltip title="View">
+                        <IconButton
+                            size="small"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleRowClick(params);
+                            }}
+                            color="info"
+                        >
+                            <VisibilityIcon fontSize="small" />
+                        </IconButton>
+                    </Tooltip>
                     {canModify && (
                         <Tooltip title="Edit">
                             <IconButton
                                 size="small"
-                                onClick={() => handleEditUser(params.row)}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleEditUser(params.row);
+                                }}
                                 color="primary"
                             >
                                 <EditIcon fontSize="small" />
@@ -237,7 +253,10 @@ export const UserListPage = () => {
                         <Tooltip title="Delete">
                             <IconButton
                                 size="small"
-                                onClick={() => handleDeleteClick(params.row)}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleDeleteClick(params.row);
+                                }}
                                 color="error"
                             >
                                 <DeleteIcon fontSize="small" />
