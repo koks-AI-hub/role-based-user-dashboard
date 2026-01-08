@@ -21,23 +21,11 @@ const UserListPage = lazy(() => import('../pages/users/UserListPage'));
 const ProfilePage = lazy(() => import('../pages/profile/ProfilePage'));
 
 /**
- * Home route redirect based on authentication and role
+ * Home route redirect
+ * Always redirect to login page for initial entry
  */
 const HomeRedirect = () => {
-    const { user, isAuthenticated } = useAuth();
-
-    if (!isAuthenticated()) {
-        return <Navigate to={ROUTES.LOGIN} replace />;
-    }
-
-    // Redirect to role-specific dashboard
-    const dashboardRoutes = {
-        [USER_ROLES.ADMIN]: ROUTES.ADMIN_DASHBOARD,
-        [USER_ROLES.MANAGER]: ROUTES.MANAGER_DASHBOARD,
-        [USER_ROLES.VIEWER]: ROUTES.VIEWER_DASHBOARD,
-    };
-
-    return <Navigate to={dashboardRoutes[user.role] || ROUTES.LOGIN} replace />;
+    return <Navigate to={ROUTES.LOGIN} replace />;
 };
 
 /**
