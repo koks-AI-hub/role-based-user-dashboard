@@ -77,15 +77,13 @@ export const AdminDashboard = () => {
                 </Box>
 
                 {/* Stats Cards */}
-                <Grid container spacing={3} sx={{ mb: 4, justifyContent: 'center' }}>
+                <Grid container spacing={3} sx={{ mb: 4 }}>
                     <Grid item xs={12} sm={6} md={3}>
                         <StatsCard
                             title="Total Users"
                             value={stats.totalUsers}
                             icon={PeopleIcon}
                             color="primary"
-                            trend={stats.userGrowth}
-                            trendDirection="up"
                             subtitle="All registered users"
                         />
                     </Grid>
@@ -115,62 +113,6 @@ export const AdminDashboard = () => {
                             color="warning"
                             subtitle="Administrator accounts"
                         />
-                    </Grid>
-                </Grid>
-
-                {/* User Growth Chart Placeholder */}
-                <Grid container spacing={3} sx={{ mb: 4 }}>
-                    <Grid item xs={12} md={8}>
-                        <Card>
-                            <CardContent>
-                                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                                    <TrendingUpIcon sx={{ mr: 1, color: 'primary.main' }} />
-                                    <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                                        User Growth
-                                    </Typography>
-                                </Box>
-                                <Box sx={{
-                                    height: 300,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    bgcolor: 'action.hover',
-                                    borderRadius: 2,
-                                }}>
-                                    <Typography variant="body2" color="text.secondary">
-                                        User growth chart visualization area
-                                    </Typography>
-                                </Box>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-
-                    <Grid item xs={12} md={4}>
-                        <Card>
-                            <CardContent>
-                                <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-                                    Quick Stats
-                                </Typography>
-                                <Box sx={{ mt: 2 }}>
-                                    <Box sx={{ mb: 2 }}>
-                                        <Typography variant="body2" color="text.secondary">
-                                            New Users This Month
-                                        </Typography>
-                                        <Typography variant="h4" sx={{ fontWeight: 700, color: 'primary.main' }}>
-                                            {stats.newUsersThisMonth}
-                                        </Typography>
-                                    </Box>
-                                    <Box sx={{ mb: 2 }}>
-                                        <Typography variant="body2" color="text.secondary">
-                                            User Growth Rate
-                                        </Typography>
-                                        <Typography variant="h5" sx={{ fontWeight: 600, color: 'success.main' }}>
-                                            +{stats.userGrowth}%
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                            </CardContent>
-                        </Card>
                     </Grid>
                 </Grid>
 

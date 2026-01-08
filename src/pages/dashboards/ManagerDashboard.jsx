@@ -73,7 +73,7 @@ export const ManagerDashboard = () => {
                 </Box>
 
                 {/* Stats Cards */}
-                <Grid container spacing={3} sx={{ mb: 4, justifyContent: 'center' }}>
+                <Grid container spacing={3} sx={{ mb: 4 }}>
                     <Grid item xs={12} sm={6} md={3}>
                         <StatsCard
                             title="Team Members"

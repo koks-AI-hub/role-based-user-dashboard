@@ -223,11 +223,6 @@ export const deleteUser = async (id) => {
         throw new Error('User not found');
     }
 
-    // Don't allow deleting demo users
-    if (id === '1' || id === '2' || id === '3') {
-        throw new Error('Cannot delete demo users');
-    }
-
     // Store for rollback
     const deletedUser = usersCache[index];
 
@@ -255,12 +250,6 @@ export const deleteUsers = async (ids) => {
 
     for (const id of ids) {
         try {
-            // Don't allow deleting demo users
-            if (id === '1' || id === '2' || id === '3') {
-                errors.push({ id, error: 'Cannot delete demo users' });
-                continue;
-            }
-
             const index = usersCache.findIndex(u => u.id === id);
             if (index !== -1) {
                 deletedUsers.push({ id, user: usersCache[index], index });

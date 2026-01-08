@@ -5,10 +5,9 @@
 
 import React from 'react';
 import { Card, CardContent, Box, Typography, alpha, useTheme } from '@mui/material';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 
-export const StatsCard = ({ title, value, icon: Icon, color = 'primary', trend, subtitle, gradient = false }) => {
+
+export const StatsCard = ({ title, value, icon: Icon, color = 'primary', subtitle, gradient = false }) => {
     const theme = useTheme();
 
     const colorMap = {
@@ -67,7 +66,7 @@ export const StatsCard = ({ title, value, icon: Icon, color = 'primary', trend, 
                             sx={{
                                 color: gradient ? 'white' : 'text.primary',
                                 fontWeight: 700,
-                                mb: trend ? 1 : 0,
+                                mb: 0,
                             }}
                         >
                             {value}
@@ -84,34 +83,6 @@ export const StatsCard = ({ title, value, icon: Icon, color = 'primary', trend, 
                             >
                                 {subtitle}
                             </Typography>
-                        )}
-
-                        {trend && (
-                            <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
-                                {trend > 0 ? (
-                                    <TrendingUpIcon sx={{ fontSize: 16, color: gradient ? 'rgba(255,255,255,0.9)' : 'success.main', mr: 0.5 }} />
-                                ) : (
-                                    <TrendingDownIcon sx={{ fontSize: 16, color: gradient ? 'rgba(255,255,255,0.9)' : 'error.main', mr: 0.5 }} />
-                                )}
-                                <Typography
-                                    variant="caption"
-                                    sx={{
-                                        color: gradient ? 'rgba(255,255,255,0.9)' : trend > 0 ? 'success.main' : 'error.main',
-                                        fontWeight: 600,
-                                    }}
-                                >
-                                    {trend > 0 ? '+' : ''}{trend}%
-                                </Typography>
-                                <Typography
-                                    variant="caption"
-                                    sx={{
-                                        color: gradient ? 'rgba(255,255,255,0.7)' : 'text.secondary',
-                                        ml: 0.5,
-                                    }}
-                                >
-                                    from last month
-                                </Typography>
-                            </Box>
                         )}
                     </Box>
 
