@@ -20,6 +20,8 @@ body {
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F8FAFC;
+  min-height: 100vh;
 }
 
 code {
@@ -71,7 +73,7 @@ html {
   body {
     background: white;
   }
-  
+
   /* Hide non-essential elements */
   nav,
   aside,
